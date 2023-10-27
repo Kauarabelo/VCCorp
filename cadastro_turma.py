@@ -63,15 +63,15 @@ def cadastrar_turma():
         if continuar != 's':
             break
 
-# Exibir as informações das turmas
-print("\nInformações das Turmas:")
-for turma in turmas:
-    print(f"ID da Turma: {turma['id_turma']}")
-    print(f"Data de Início: {turma['data_inicio']}")
-    print("Alunos:")
-    for aluno in turma['alunos']:
-        print(f"- Nome: {aluno['nome']}, ID da Turma: {aluno['id_turma']}, RA: {aluno['ra']}")
-    print("\n")
+    # Exibir as informações das turmas
+    print("\nInformações das Turmas:")
+    for turma in turmas:
+        print(f"ID da Turma: {turma['id_turma']}")
+        print(f"Data de Início: {turma['data_inicio']}")
+        print("Alunos:")
+        for aluno in turma['alunos']:
+            print(f"- Nome: {aluno['nome']}, ID da Turma: {aluno['id_turma']}, RA: {aluno['ra']}")
+        print("\n")
 
 # Exemplo de como salvar os dados em JSON
 def relatorio_turmas(turmas):
