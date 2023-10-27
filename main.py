@@ -19,8 +19,13 @@ while True:
     elif opcao == "2":
         aluno_ciclo.registrar_ciclos_e_notas()  # Chama a função para registrar ciclos e notas
     elif opcao == "3":
-        # Adicione aqui a lógica para a opção de relatório
-        print("Opção de relatório ainda não implementada.")
+        print("A. Relatório Json das turmas").strip().lower()
+        print("B. Relatório Json dos ciclos das notas").strip().lower()
+        escolha_relatorio = str(input("Qual relatório deseja ver? "))
+        if escolha_relatorio == 'a':
+            cadastro_turma.relatorio_turmas()
+        elif escolha_relatorio == 'b':
+            aluno_ciclo.relatorio_ciclos_notas()
     elif opcao == "4":
         break
     else:

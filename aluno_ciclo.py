@@ -92,8 +92,9 @@ def registrar_ciclos_e_notas():
 
 if alunos:
     # Ao sair do loop, crie o arquivo JSON com as notas
-    with open('notas_alunos.json', 'w') as json_file:
-        json.dump(alunos, json_file, indent=4)
+    def relatorio_ciclos_notas(alunos):
+        with open('notas_alunos.json', 'w') as json_file:
+            json.dump(alunos, json_file, indent=4)
     print("Arquivo JSON criado com as notas dos alunos: 'notas_alunos.json'")
 else:
     print("Nenhum dado foi registrado. Saindo do programa.")

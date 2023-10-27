@@ -74,5 +74,6 @@ for turma in turmas:
     print("\n")
 
 # Exemplo de como salvar os dados em JSON
-with open('turmas.json', 'w') as arquivo_json:
-    json.dump(turmas, arquivo_json, indent=4)
+def relatorio_turmas(turmas):
+    with open('turmas.json', 'w') as arquivo_json:
+        json.dump(turmas, arquivo_json, indent=4)
