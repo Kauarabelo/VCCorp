@@ -9,8 +9,8 @@ def editar_aluno(ra_aluno):
             print(f'\nEditando dados do aluno RA: {ra_aluno}')
             while True:
                 print(f'1-Nome: {aluno["Nome"]}')
-                print('3-Remover aluno')
-                campo = input('Escolha o campo que deseja editar (1), (2) para remover ou 3 para sair: ')
+                print('2-Remover aluno')
+                campo = input('Escolha o campo que deseja editar (1), (2) para remover, 3 para sair: ')
 
                 if campo == '1':
                     aluno["Nome"] = input('Novo Nome: ')
@@ -29,8 +29,8 @@ def editar_aluno(ra_aluno):
                 else:
                     print('Opção inválida. Tente novamente.')
 
-            # Se o campo não for '4' e a opção para remover não foi escolhida, atualiza os dados do aluno
-            if campo != '4':
+            # Se o campo não for '3' e a opção para remover não foi escolhida, atualiza os dados do aluno
+            if campo != '3':
                 dados_alunos['alunos'][ra_aluno] = aluno
                 arquivo_dados_alunos_json.seek(0)
                 json.dump(dados_alunos, arquivo_dados_alunos_json, indent=4)

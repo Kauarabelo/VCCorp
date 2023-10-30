@@ -1,6 +1,7 @@
 import aluno_ciclo
 import cadastro_turma
 import editar_aluno
+import editar_turma
 
 # Função para exibir opções de menu
 def exibir_menu():
@@ -23,7 +24,11 @@ while True:
             aluno_ciclo.registrar_ciclos_e_notas()
 
     elif opcao == "2":
-        editar_aluno.editar_aluno()
+        escolha_2 = str(input("A. Editar Aluno / B. Editar Turma: ")).strip().lower()
+        if escolha_1 == 'a':
+            editar_aluno.editar_aluno()
+        elif escolha_1 == 'b':
+            editar_turma.editar_turmas()
 
     elif opcao == "3":
         print("A. Relatório Json das turmas").strip().lower()
