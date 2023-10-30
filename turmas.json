@@ -1,0 +1,28 @@
+[
+    {
+        "id_turma": "2",
+        "data_inicio": "1345",
+        "alunos": [
+            {
+                "nome": "Carlos",
+                "id_turma": "2",
+                "ra": "1"
+            },
+            {
+                "nome": "Yan",
+                "id_turma": "2",
+                "ra": "2"
+            },
+            {
+                "nome": "Larry",
+                "id_turma": "2",
+                "ra": "3"
+            },
+            {
+                "nome": "Parry",
+                "id_turma": "2",
+                "ra": "4"
+            }
+        ]
+    }
+]

@@ -7,9 +7,6 @@ try:
 except FileNotFoundError:
     alunos = []
 
-# Contador das RAs
-contador_ra = 1
-
 # Lista para armazenar as turmas
 turmas = []
 
@@ -23,14 +20,9 @@ def cadastrar_turma():
 
         while True:
             nome_aluno = input(f"Digite o nome do aluno (Turma {id_turma}): ")
-            pergunta_turma = str(input("Esse aluno está em outra turma(S/N)? ")).strip().lower()
-            if pergunta_turma == 's':
-                outro_id_turma = input("Em qual outra turma ele está? ")
-            else:
-                continue
 
             # Criar a RA como uma string
-            ra = str(contador_ra)
+            ra = str(len(alunos_turma) + 1)
 
             # Criar um dicionário com o nome, o ID da turma e a RA do aluno
             aluno = {
@@ -41,9 +33,6 @@ def cadastrar_turma():
 
             # Adicionar o aluno à lista de alunos da turma
             alunos_turma.append(aluno)
-
-            # Incrementar o número da RA
-            contador_ra += 1
 
             continuar = input("Deseja adicionar mais um aluno(a)? (S/N)").strip().lower()
             if continuar != 's':
@@ -74,6 +63,10 @@ def cadastrar_turma():
         print("\n")
 
 # Exemplo de como salvar os dados em JSON
-def relatorio_turmas(turmas):
+def relatorio_turmas():
     with open('turmas.json', 'w') as arquivo_json:
         json.dump(turmas, arquivo_json, indent=4)
+
+# Exemplo de uso
+cadastrar_turma()
+relatorio_turmas()
