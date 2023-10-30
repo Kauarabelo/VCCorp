@@ -25,15 +25,15 @@ while True:
 
     elif opcao == "2":
         escolha_2 = str(input("A. Editar Aluno / B. Editar Turma: ")).strip().lower()
-        if escolha_1 == 'a':
+        if escolha_2 == 'a':  # Corrigido de escolha_1 para escolha_2
             editar_aluno.editar_aluno()
-        elif escolha_1 == 'b':
+        elif escolha_2 == 'b':  # Corrigido de escolha_1 para escolha_2
             editar_turma.editar_turmas()
 
     elif opcao == "3":
-        print("A. Relatório Json das turmas").strip().lower()
-        print("B. Relatório Json dos ciclos das notas").strip().lower()
-        escolha_relatorio = str(input("Qual relatório deseja ver? "))
+        print("A. Relatório Json das turmas")  # Removido o .strip().lower()
+        print("B. Relatório Json dos ciclos das notas")  # Removido o .strip().lower()
+        escolha_relatorio = str(input("Qual relatório deseja ver? ")).strip().lower()
         if escolha_relatorio == 'a':
             cadastro_turma.relatorio_turmas()
         elif escolha_relatorio == 'b':
