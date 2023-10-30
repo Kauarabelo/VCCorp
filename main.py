@@ -1,11 +1,12 @@
 import aluno_ciclo
 import cadastro_turma
+import editar_aluno
 
 # Função para exibir opções de menu
 def exibir_menu():
     print("O que você quer fazer hoje?")
-    print("1. Cadastro de turmas")
-    print("2. Ciclos e Notas")
+    print("1. Cadastro de turmas e Ciclos de Notas")
+    print("2. Editar alunos")
     print("3. Relatório")
     print("4. Sair")
 
@@ -15,9 +16,15 @@ while True:
     opcao = input("Opção: ")
 
     if opcao == "1":
-        cadastro_turma.cadastrar_turma()  # Chama a função para cadastrar turmas
+        escolha_1 = str(input("A. Cadastro de turmas / B. Ciclos de Notas: ")).strip().lower()
+        if escolha_1 == 'a':
+            cadastro_turma.cadastrar_turma()
+        elif escolha_1 == 'b':
+            aluno_ciclo.registrar_ciclos_e_notas()
+
     elif opcao == "2":
-        aluno_ciclo.registrar_ciclos_e_notas()  # Chama a função para registrar ciclos e notas
+        editar_aluno.editar_aluno()
+
     elif opcao == "3":
         print("A. Relatório Json das turmas").strip().lower()
         print("B. Relatório Json dos ciclos das notas").strip().lower()
@@ -26,6 +33,7 @@ while True:
             cadastro_turma.relatorio_turmas()
         elif escolha_relatorio == 'b':
             aluno_ciclo.relatorio_ciclos_notas()
+
     elif opcao == "4":
         break
     else:
