@@ -45,4 +45,3 @@ def editar_aluno(ra_aluno):
 
 # Exemplo de uso:
 ra_aluno = input('Digite o RA do aluno que deseja editar ou remover: ')
-editar_aluno(ra_aluno)
