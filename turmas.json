@@ -1,0 +1,13 @@
+[
+    {
+        "id_turma": "2",
+        "data_inicio": "345",
+        "alunos": [
+            {
+                "nome": "gbtb",
+                "id_turma": "2",
+                "ra": "1"
+            }
+        ]
+    }
+]

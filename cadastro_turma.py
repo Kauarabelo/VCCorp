@@ -67,6 +67,4 @@ def relatorio_turmas():
     with open('turmas.json', 'w') as arquivo_json:
         json.dump(turmas, arquivo_json, indent=4)
 
-# Exemplo de uso
-cadastrar_turma()
-relatorio_turmas()
+

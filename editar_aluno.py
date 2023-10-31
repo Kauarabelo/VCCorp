@@ -43,5 +43,4 @@ def editar_aluno(ra_aluno):
             print(f'O aluno com RA {ra_aluno} não foi encontrado.')
             return False
 
-# Exemplo de uso:
-ra_aluno = input('Digite o RA do aluno que deseja editar ou remover: ')
+
