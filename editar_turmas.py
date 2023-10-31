@@ -1,42 +1,46 @@
 import json
 
-def editar_turmas(ra_aluno):
-    # Verifique se o RA do aluno existe no arquivo JSON
-    with open('dados_alunos.json', 'r+') as arquivo_dados_alunos_json:
-        dados_alunos = json.load(arquivo_dados_alunos_json)
 
-        aluno = dados_alunos.get('alunos', {}).get(ra_aluno)
-        if aluno:
-            print(f'\nEditando turmas do aluno com RA: {ra_aluno}')
-            while True:
-                print(f'Turmas atuais do aluno: {aluno["turmas"]}')
 
-                acao = input('Escolha a ação:\n1-Adicionar Turma\n2-Remover Turma\n3-Para sair: ')
-                if acao == '1':
-                    codigo_turma = input('Digite o código da turma que deseja adicionar: ')
-                    if codigo_turma not in aluno["turmas"]:
-                        aluno["turmas"].append(codigo_turma)
-                    else:
-                        print(f'O aluno já está na turma com código: {codigo_turma}')
-                elif acao == '2':
-                    codigo_turma = input('Digite o código da turma que deseja remover: ')
-                    if codigo_turma in aluno["turmas"]:
-                        aluno["turmas"].remove(codigo_turma)
-                        print(f'O aluno foi removido da turma com código: {codigo_turma}')
-                    else:
-                        print(f'O aluno não está na turma com código: {codigo_turma}')
-                elif acao == '3':
-                    break
-                else:
-                    print('Opção inválida. Tente novamente.')
+def carregar_dados_alunos():
+    try:
+        with open('dados_alunos.json', 'r') as arquivo_dados_alunos_json:
+            dados_alunos = json.load(arquivo_dados_alunos_json)
+    except FileNotFoundError:
+        # Se o arquivo não existir, cria uma estrutura vazia
+        dados_alunos = {
+            "alunos": {},
+            "turmas": {},
+            "ciclos": {},
+            "grupos": {},
+            "notas": {}
+        }
+    return dados_alunos
 
-            # Atualiza a seção de alunos no arquivo JSON com as turmas atualizadas
-            dados_alunos['alunos'][ra_aluno] = aluno
-            arquivo_dados_alunos_json.seek(0)  # Volta para o início do arquivo
-            json.dump(dados_alunos, arquivo_dados_alunos_json, indent=4)
-            arquivo_dados_alunos_json.truncate()
-            print('Turmas do aluno atualizadas com sucesso.')
-            return True
-        else:
-            print(f'O aluno com RA {ra_aluno} não foi encontrado.')
+def editar_turma(turma_id):
+    dados = carregar_dados_alunos()
+    if turma_id in dados['turmas']:
+        turma = dados['turmas'][turma_id]
+        print(f'Editando dados da turma ID: {turma_id}')
+        while True:
+            print(f'1 - Nome: {turma["Nome"]}')
+
+            campo = input('Escolha o campo que deseja editar (1), 2 para cancelar ou 3 para salvar: ')
+            if campo == '1':
+                turma['Nome'] = input('Novo Nome: ')
+            elif campo == '2':
+                break
+            elif campo == '3':
+                dados['turmas'][turma_id] = turma
+                with open('dados.json', 'w') as arquivo_json:
+                    json.dump(dados, arquivo_json, indent=4)
+                print('Cadastro atualizado com sucesso.')
+                return True
+            else:
+                print('Opção inválida. Tente novamente.')
+        if campo != '2':
+            print('Cadastro atualizado com sucesso.')
             return False
+    else:
+        print(f'A turma com ID {turma_id} não foi encontrada.')
+        return False

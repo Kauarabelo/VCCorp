@@ -1,0 +1,163 @@
+{
+    "alunos": {
+        "RA1": {
+            "RA": "RA1",
+            "Nome": "Edu",
+            "Idade": "22",
+            "E-mail": "edu@gmail.com",
+            "turmas": [
+                "T3"
+            ],
+            "grupos": []
+        },
+        "RA3": {
+            "RA": "RA3",
+            "Nome": "Yan",
+            "Idade": "22",
+            "E-mail": "yan@gmail.com",
+            "turmas": [],
+            "grupos": []
+        },
+        "RA2": {
+            "RA": "RA2",
+            "Nome": "Shrek",
+            "Idade": "45",
+            "E-mail": "sherekfiona@gmail.com",
+            "turmas": [
+                "T3"
+            ],
+            "grupos": []
+        },
+        "RA4": {
+            "RA": "RA4",
+            "Nome": "Fionna",
+            "Idade": "17",
+            "E-mail": "FionnaeCake@gmail.com",
+            "turmas": [],
+            "grupos": []
+        },
+        "RA5": {
+            "RA": "RA5",
+            "Nome": "Joao Cleber",
+            "Idade": "45",
+            "E-mail": "joaozinho@gmail.com",
+            "turmas": [],
+            "grupos": []
+        },
+        "RA6": {
+            "RA": "RA6",
+            "Nome": "Bob esponja",
+            "Idade": "4",
+            "E-mail": "bob@gmail.com",
+            "turmas": [],
+            "grupos": []
+        },
+        "R7": {
+            "RA": "R7",
+            "Nome": "Fin",
+            "Idade": "19",
+            "E-mail": "finn@gmail.com",
+            "turmas": [],
+            "grupos": []
+        }
+    },
+    "turmas": {
+        "T1": {
+            "ID": "T1",
+            "Nome": "NomeQualquer1",
+            "Data de In\u00edcio": "31/10/2021",
+            "ciclos": [
+                {
+                    "ID": "C2",
+                    "Nome": "Atividade 1",
+                    "Data de In\u00edcio": "31/10/2023",
+                    "Data de Fim": "04/11/2023",
+                    "Peso da Nota": "5"
+                },
+                {
+                    "ID": "C3",
+                    "Nome": "Tarefinha",
+                    "Data de In\u00edcio": "23/06/2023",
+                    "Data de Fim": "25/07/2023",
+                    "Peso da Nota": "2"
+                }
+            ]
+        },
+        "T2": {
+            "ID": "T2",
+            "Nome": "Salinha do professor raimundo",
+            "Data de In\u00edcio": "15/11/2023"
+        },
+        "T3": {
+            "ID": "T3",
+            "Nome": "Escolinha",
+            "Data de In\u00edcio": "01/11/23",
+            "ciclos": [
+                {
+                    "ID": "C6",
+                    "Nome": "Taref\u00e3o",
+                    "Data de In\u00edcio": "09/12/2023",
+                    "Data de Fim": "15/12/2023",
+                    "Peso da Nota": "8"
+                }
+            ]
+        }
+    },
+    "ciclos": {
+        "C1": {
+            "ID": "C1",
+            "Nome": " ",
+            "Data de In\u00edcio": " ",
+            "Data de Fim": " ",
+            "Peso da Nota": " "
+        },
+        "C2": {
+            "ID": "C2",
+            "Nome": "Atividade 1",
+            "Data de In\u00edcio": "31/10/2023",
+            "Data de Fim": "04/11/2023",
+            "Peso da Nota": "5"
+        },
+        "C3": {
+            "ID": "C3",
+            "Nome": "Tarefinha",
+            "Data de In\u00edcio": "23/06/2023",
+            "Data de Fim": "25/07/2023",
+            "Peso da Nota": "2"
+        },
+        "C6": {
+            "ID": "C6",
+            "Nome": "Taref\u00e3o",
+            "Data de In\u00edcio": "09/12/2023",
+            "Data de Fim": "15/12/2023",
+            "Peso da Nota": "8"
+        }
+    },
+    "grupos": {
+        "G1": {
+            "ID": "G1",
+            "Nome": "Tech coders"
+        },
+        "g5": {
+            "ID": "g5",
+            "Nome": "Code Miners",
+            "Alunos": [
+                "RA1",
+                "RA2",
+                "RA3",
+                "RA7",
+                "RA8",
+                " "
+            ]
+        },
+        "G9": {
+            "ID": "G9",
+            "Nome": "Programadores master",
+            "Alunos": [
+                "RA1",
+                "RA2"
+            ]
+        }
+    },
+    "notas": {}
+}
