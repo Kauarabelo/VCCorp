@@ -7,7 +7,7 @@ import editar_aluno
 def exibir_menu():
     print("O que você quer fazer hoje?")
     print("1. Cadastros")
-    print("2. Editar")
+    #print("2. Editar")
     print("3. Relatório")
     print("4. Sair")
 
@@ -27,13 +27,13 @@ while True:
         elif escolha_1 == 'd':
             aluno_ciclo.registrar_ciclos_e_notas()
 
-    elif opcao == "2":
-        escolha_2 = str(input("A. Editar Aluno / B. Editar Turma / C. Editar Grupos de Alunos / D. Editar Notas: ")).strip().lower()
-        if escolha_2 == 'a':  
-            editar_aluno.editar_aluno()
+    #elif opcao == "2":
+        #escolha_2 = str(input("A. Editar Aluno / B. Editar Turma / C. Editar Grupos de Alunos / D. Editar Notas: ")).strip().lower()
+       # if escolha_2 == 'a':  
+           # editar_aluno.editar_aluno()
             
-        elif escolha_2 == 'b':  
-            editar_turmas.editar_turmas()
+       # elif escolha_2 == 'b':  
+            #editar_turmas.editar_turmas()
 
         #elif escolha_2 == 'c'
         #elif escolha_2 == 'd'
