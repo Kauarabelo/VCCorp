@@ -4,6 +4,7 @@ import aluno_ciclo
 import editar_turmas
 import editar_aluno
 import criar_grupos
+import editar_grupos
 
 # Função para exibir opções de menu
 def exibir_menu():
@@ -39,7 +40,7 @@ while True:
         if escolha_3 == 'a':
             criar_grupos.criacao_de_grupo()
         else:
-            pass
+            editar_grupos.editar_grupo()
 
     elif opcao == "4":
         escolha_4 = str(input("A. Criar Ciclo/Nota / B. Editar Ciclo/Notas: ")).strip().lower()
