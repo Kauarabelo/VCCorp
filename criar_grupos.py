@@ -7,8 +7,6 @@ try:
 except FileNotFoundError:
     alunos = []
 
-def criacao_de_grupo():
-
     # Lista para armazenar as turmas
     turmas = []
 
@@ -77,4 +75,9 @@ def criacao_de_grupo():
         else:
             print("Grupo não encontrado.")
 
+    # Função para salvar os dados dos grupos em um arquivo JSON
+    def salvar_grupos_json():
+        with open('grupos.json', 'w') as arquivo_json:
+            json.dump(grupos, arquivo_json, indent=4)
+            print("Dados dos grupos foram salvos em 'grupos.json'.")
 
