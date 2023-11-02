@@ -43,40 +43,40 @@ def editar_grupo():
                 print("Grupo não encontrado.")
 
         # Função para remover um aluno de um grupo
-def remover_aluno_de_grupo():
-    # Exibir os grupos disponíveis
-     print("Grupos disponíveis:")
-for grupo in grupos:
-        print(f"- Nome do Grupo: {grupo}")
+    def remover_aluno_de_grupo():
+        # Exibir os grupos disponíveis
+        print("Grupos disponíveis:")
+    for grupo in grupos:
+            print(f"- Nome do Grupo: {grupo}")
 
-        nome_grupo = input("Selecione o nome do grupo para remover um aluno: ")
+            nome_grupo = input("Selecione o nome do grupo para remover um aluno: ")
 
-         # Verificar se o grupo existe
-        grupo_encontrado = grupos.get(nome_grupo)
+            # Verificar se o grupo existe
+            grupo_encontrado = grupos.get(nome_grupo)
 
-        if grupo_encontrado:
-                # Exibir os alunos no grupo
-                alunos_no_grupo = grupo_encontrado['alunos']
-                if not alunos_no_grupo:
-                    print(f"Grupo '{nome_grupo}' está vazio.")
-                else:
-                    print(f"Alunos no grupo '{nome_grupo}':")
-                    for aluno in alunos_no_grupo:
-                        print(f"- Nome do Aluno: {aluno['nome']} (RA: {aluno['ra']})")
-
-                    ra_aluno = input("Digite o RA do aluno para remover do grupo: ")
-
-                    # Verificar se o aluno está no grupo
-                    aluno_encontrado = None
-                    for aluno in alunos_no_grupo:
-                        if aluno['ra'] == ra_aluno:
-                            aluno_encontrado = aluno
-                            break
-
-                    if aluno_encontrado:
-                        grupo_encontrado['alunos'].remove(aluno_encontrado)
-                        print(f"Aluno removido do grupo '{nome_grupo}'.")
+            if grupo_encontrado:
+                    # Exibir os alunos no grupo
+                    alunos_no_grupo = grupo_encontrado['alunos']
+                    if not alunos_no_grupo:
+                        print(f"Grupo '{nome_grupo}' está vazio.")
                     else:
-                        print("Aluno não encontrado no grupo.")
-        else:
-            print("Grupo não encontrado.")
+                        print(f"Alunos no grupo '{nome_grupo}':")
+                        for aluno in alunos_no_grupo:
+                            print(f"- Nome do Aluno: {aluno['nome']} (RA: {aluno['ra']})")
+
+                        ra_aluno = input("Digite o RA do aluno para remover do grupo: ")
+
+                        # Verificar se o aluno está no grupo
+                        aluno_encontrado = None
+                        for aluno in alunos_no_grupo:
+                            if aluno['ra'] == ra_aluno:
+                                aluno_encontrado = aluno
+                                break
+
+                        if aluno_encontrado:
+                            grupo_encontrado['alunos'].remove(aluno_encontrado)
+                            print(f"Aluno removido do grupo '{nome_grupo}'.")
+                        else:
+                            print("Aluno não encontrado no grupo.")
+            else:
+                print("Grupo não encontrado.")

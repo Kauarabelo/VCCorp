@@ -7,6 +7,7 @@ try:
 except FileNotFoundError:
     alunos = []
 
+def grupos():
     # Lista para armazenar as turmas
     turmas = []
 
@@ -37,47 +38,47 @@ except FileNotFoundError:
         else:
             print("Turma não encontrada. Grupo não criado.")
 
-    # Função para atribuir um aluno a um grupo
-    def atribuir_aluno_a_grupo():
-        # Exibir os grupos disponíveis
-        print("Grupos disponíveis:")
-        for grupo in grupos:
-            print(f"- Nome do Grupo: {grupo}")
+        # Função para atribuir um aluno a um grupo
+        def atribuir_aluno_a_grupo():
+            # Exibir os grupos disponíveis
+            print("Grupos disponíveis:")
+            for grupo in grupos:
+                print(f"- Nome do Grupo: {grupo}")
 
-        nome_grupo = input("Selecione o nome do grupo para adicionar um aluno: ")
+            nome_grupo = input("Selecione o nome do grupo para adicionar um aluno: ")
 
-        # Verificar se o grupo existe
-        grupo_encontrado = grupos.get(nome_grupo)
+            # Verificar se o grupo existe
+            grupo_encontrado = grupos.get(nome_grupo)
 
-        if grupo_encontrado:
-            id_turma = grupo_encontrado['turma']['id_turma']
+            if grupo_encontrado:
+                id_turma = grupo_encontrado['turma']['id_turma']
 
-            # Exibir os alunos disponíveis na turma
-            print(f"Alunos da turma {id_turma}:")
-            alunos_turma = grupo_encontrado['turma']['alunos']
-            for aluno in alunos_turma:
-                print(f"- Nome do Aluno: {aluno['nome']} (RA: {aluno['ra']})")
+                # Exibir os alunos disponíveis na turma
+                print(f"Alunos da turma {id_turma}:")
+                alunos_turma = grupo_encontrado['turma']['alunos']
+                for aluno in alunos_turma:
+                    print(f"- Nome do Aluno: {aluno['nome']} (RA: {aluno['ra']})")
 
-            ra_aluno = input("Digite o RA do aluno para adicionar ao grupo: ")
+                ra_aluno = input("Digite o RA do aluno para adicionar ao grupo: ")
 
-            # Verificar se o aluno existe na turma
-            aluno_encontrado = None
-            for aluno in alunos_turma:
-                if aluno['ra'] == ra_aluno:
-                    aluno_encontrado = aluno
-                    break
+                # Verificar se o aluno existe na turma
+                aluno_encontrado = None
+                for aluno in alunos_turma:
+                    if aluno['ra'] == ra_aluno:
+                        aluno_encontrado = aluno
+                        break
 
-            if aluno_encontrado:
-                grupo_encontrado['alunos'].append(aluno_encontrado)
-                print(f"Aluno adicionado ao grupo '{nome_grupo}'.")
+                if aluno_encontrado:
+                    grupo_encontrado['alunos'].append(aluno_encontrado)
+                    print(f"Aluno adicionado ao grupo '{nome_grupo}'.")
+                else:
+                    print("Aluno não encontrado na turma.")
             else:
-                print("Aluno não encontrado na turma.")
-        else:
-            print("Grupo não encontrado.")
+                print("Grupo não encontrado.")
 
-    # Função para salvar os dados dos grupos em um arquivo JSON
-    def salvar_grupos_json():
-        with open('grupos.json', 'w') as arquivo_json:
-            json.dump(grupos, arquivo_json, indent=4)
-            print("Dados dos grupos foram salvos em 'grupos.json'.")
+        # Função para salvar os dados dos grupos em um arquivo JSON
+        def salvar_grupos_json():
+            with open('grupos.json', 'w') as arquivo_json:
+                json.dump(grupos, arquivo_json, indent=4)
+                print("Dados dos grupos foram salvos em 'grupos.json'.")
 
