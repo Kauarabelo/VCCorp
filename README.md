@@ -15,7 +15,18 @@
     
 # <h1 align="center">VISÃO DO PRODUTO</h1>
 <p>A equipe VcCorp está desenvolvendo um sistema de informação para a instituição de ensino PBLTeX, que permitirá o controle do registro dos alunos, o acompanhamento de notas e faltas, e a gestão das turmas da escola. A plataforma também possibilitará o armazenamento dos scores de cada aluno e informações do rendimento.</p>
-
+# <h2 align="center">Funcionalidades</h2>
+<p></p>Requisitos Funcionais
+• O SI possuirá um controle de Turmas
+• O SI possuirá um controle de Grupos de Alunos
+• O SI permitirá o controle de Alunos
+• O SI permitirá a carga de Alunos
+• O SI permitirá o controle dos Ciclos de Entrega
+• O SI permitirá a carga de Scores parciais relacionados ao Ciclo de Entrega
+• O SI permitirá a Configuração de parâmetros globais
+• O SI permitirá a exportação de dados consolidados, computados e métricas inferidas
+• O SI proverá visibilidades objetivas e diretas que possibilitarão o acompanhamento dos cursos providos pela PBLTeX
+</p>
 
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
 Prioridade | Sprint | Item 
