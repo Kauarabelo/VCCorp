@@ -1,12 +1,3 @@
-Ojetivo
-Visão do produto:
- Miro
- Requisitos funcionais
-Backlog do produto 
-Cronograma de entregas
-Tecnologias (substituindo o ferramentas)
-Integrantes
-
 
 # ÍNDICE
 [Visão do Produto](#VISÃO-DO-PRODUTO) <br>
