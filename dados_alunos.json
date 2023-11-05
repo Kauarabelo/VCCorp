@@ -1,20 +1,5 @@
 {
     "alunos": {
-        "RA1": {
-            "RA": "RA1",
-            "Nome": "Aluno 1",
-            "Idade": 20,
-            "E-mail": "aluno1@example.com",
-            "turmas": [
-                1,
-                2,
-                3
-            ],
-            "grupos": [
-                1,
-                2
-            ]
-        },
         "RA2": {
             "RA": "RA2",
             "Nome": "Nogueira",

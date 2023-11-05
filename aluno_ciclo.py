@@ -1,7 +1,7 @@
 import json
 
 # Lista para armazenar os alunos
-alunos = []
+alunos=[]
 
 ciclos_entry_list = []
 pesos_ciclos = {}
@@ -9,9 +9,12 @@ id_turma = ""  # Variável para armazenar o ID da turma
 
 
 def registrar_ciclos_e_notas():
+    
+             
     # Função para adicionar ciclos
     def adicionar_ciclo():
         global id_turma  # Utilize a variável global id_turma
+        print("\n")
         ciclo = input("Digite o nome do ciclo: ")
         if ciclo:
             id_turma = input("Digite o ID da turma: ")  # Defina o id_turma
@@ -27,21 +30,23 @@ def registrar_ciclos_e_notas():
 
     # Função para coletar as notas dos alunos e calcular a média ponderada
     def coletar_notas():
-        notas_aluno = []
+        ciclos_aluno = []
 
         for ciclo in ciclos_entry_list:
+            print("\n")
             nota_ciclo = float(input(f"Digite a nota para o ciclo '{ciclo['ciclo']}': "))
-            notas_aluno.append({
+            ciclos_aluno.append({
                 'Ciclo': ciclo['ciclo'],
                 'Nota': nota_ciclo,
                 'Data de Início': ciclo['data_inicio'],
                 'Data de Término': ciclo['data_final'],
+                'Peso do Ciclo': ciclo['peso_ciclo'],
                 'ID da Turma': id_turma  # Utilize o id_turma definido na função adicionar_ciclo
             })
 
         # Calcular a média ponderada
-        soma_notas = sum(nota['Nota'] * pesos_ciclos[nota['Ciclo']] for nota in notas_aluno)
-        soma_pesos = sum(pesos_ciclos[nota['Ciclo']] for nota in notas_aluno)
+        soma_notas = sum(nota['Nota'] * pesos_ciclos[nota['Ciclo']] for nota in ciclos_aluno)
+        soma_pesos = sum(pesos_ciclos[nota['Ciclo']] for nota in ciclos_aluno)
         if soma_pesos == 0:
             media_ponderada = 0.0
         else:
@@ -52,7 +57,7 @@ def registrar_ciclos_e_notas():
         aluno = {
             'Nome': nome_aluno,
             'id_turma': id_turma,
-            'Notas': notas_aluno,
+            'Ciclos': ciclos_aluno,
             'Média Ponderada': media_ponderada
         }
 
@@ -63,14 +68,28 @@ def registrar_ciclos_e_notas():
     # Função para exibir informações dos alunos
     def exibir_notas():
         for aluno in alunos:
+            print("\n")
             print(f"Nome: {aluno['Nome']}")
-            print(f"ID da Turma: {aluno['id_turma']},")
+            print(f"ID da Turma: {aluno['id_turma']}")
             for nota in aluno['Notas']:
                 print(f"Ciclo: {nota['Ciclo']}, Nota: {nota['Nota']}")
                 print(f"Data de Início: {nota['Data de Início']}, Data de Término: {nota['Data de Término']}")
             print(f"Média Ponderada: {aluno['Média Ponderada']}\n")
-
+         
+    # Ao sair do loop, crie o arquivo JSON com as notas
+    def relatorio_ciclos_notas(alunos):
+        with open('notas_alunos.json', 'w') as json_file:
+            json.dump(alunos, json_file, indent=4)
+        return("\nArquivo JSON criado com as notas dos alunos: 'notas_alunos.json'")
+    
+    def registrar_ciclos_e_notas():
+    
+        mensagem = relatorio_ciclos_notas(alunos)
+        print(mensagem)
+  
+ # Menu Principal
     while True:
+        
         print("\nMenu:")
         print("1. Adicionar Ciclo")
         print("2. Coletar Notas")
@@ -86,14 +105,11 @@ def registrar_ciclos_e_notas():
         elif escolha == '3':
             exibir_notas()
         elif escolha == '4':
+            registrar_ciclos_e_notas()
             break
         else:
-            print("Opção inválida. Tente novamente.")
+            print("\nOpção inválida. Tente novamente.")
+                      
 
-if alunos:
-    # Ao sair do loop, crie o arquivo JSON com as notas
-    def relatorio_ciclos_notas(alunos):
-        with open('notas_alunos.json', 'w') as json_file:
-            json.dump(alunos, json_file, indent=4)
-    print("Arquivo JSON criado com as notas dos alunos: 'notas_alunos.json'")
+   
 
