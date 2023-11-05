@@ -14,7 +14,7 @@
 <p>Fornecer ao cliente uma forma de gerenciar o rendimento invidual e conjunto dos alunos.</p>
     
 # <h1 align="center">VISÃO DO PRODUTO</h1>
-<p>o sistema é uma plataforma online no qual o cliente irá controlar o registro dos alunos, acompanhar notas e faltas; e gerenciar as turmas da escola. com a plataforma o cliente pode armazenar o score de cada aluno, alem de gerar tabelas e graficos do rendimento.  </p>
+<p>A equipe VcCorp está desenvolvendo um sistema de informação para a instituição de ensino PBLTeX, que permitirá o controle do registro dos alunos, o acompanhamento de notas e faltas, e a gestão das turmas da escola. A plataforma também possibilitará o armazenamento dos scores de cada aluno e informações do rendimento.</p>
 
 
 # <h1 align="center">BACKLOG DO PRODUTO</h1>
