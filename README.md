@@ -9,13 +9,10 @@ Integrantes
 
 
 # ÍNDICE
-[Cronograma de entrega](#CRONOGRAMA-DE-ENTREGAS) <br>
 [Visão do Produto](#VISÃO-DO-PRODUTO) <br>
 [Objetivo](#OBJETIVO) <br>
-[Jornada do Usuário](#JORNADA-DO-USUÁRIO) <br>
 [Backlog do Produto](#BACKLOG-DO-PRODUTO) <br>
-[Avaliação](#AVALIAÇÃO) <br>
-[Dashboards](#DASHBOARDS) <br>
+[Cronograma de entrega](#CRONOGRAMA-DE-ENTREGAS) <br>
 [Planejamento](#PLANEJAMENTO) <br>
 [Integrantes](#INTEGRANTES) <br>
 
