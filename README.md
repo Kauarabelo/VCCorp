@@ -44,6 +44,11 @@ Média | 4 |ACOMPANHAMENTO DOS CURSOS PROVIDOS PELA PBLTeX
 Alta | 3 |INTERFACE WEB
 Alta | 3 |BANCO DE DADOS(JSON/EXCEL)
 
+# <h1 align="center">GUIA DE INSTALAÇÃO</h1>
+    - Vá para o branch "sprint3"
+    - Entre na pasta "sprint_3" e baixe os arquivos em formato zip
+    - Execute o main.py no terminal
+
 # <h1 align="center">CRONOGRAMA DE ENTREGAS📆</h1>
     ✅  **Kick off do projeto** - 21/08/2023
     ✅  **Sprint 1** - Início: 04/09/2023 Entrega: 24/09/2023
