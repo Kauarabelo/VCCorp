@@ -1,16 +1,1 @@
-[
-    {
-        "Nome": "Joao",
-        "id_turma": "3223",
-        "Notas": [
-            {
-                "Ciclo": "Er",
-                "Nota": 4.0,
-                "Data de In\u00edcio": "434",
-                "Data de T\u00e9rmino": "322",
-                "ID da Turma": "3223"
-            }
-        ],
-        "M\u00e9dia Ponderada": 4.0
-    }
-]
+[]
