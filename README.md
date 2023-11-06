@@ -47,7 +47,7 @@ Média | 12 | BACKUP E RESTAURAÇÃO DE DADOS
 Baixa | 13 | RELATÓRIOS PERSONALIZADOS
 Média | 14 | GERENCIAMENTO DE NOTAS E AVALIAÇÕES
 
-# <h1 align="center">GUIA DE INSTALAÇÃO</h1>
+# <h1 align="center">GUIA DE INSTALAÇÃO ⬇</h1>
     - Vá para o branch "sprint3"
     - Entre na pasta "sprint_3" e baixe os arquivos em formato zip
     - Execute o main.py no terminal
