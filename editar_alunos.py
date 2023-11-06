@@ -2,7 +2,7 @@ import json
 
 
 
-def carregar_dados_alunos():
+def carregar_dados():
     try:
         with open('dados.json', 'r') as arquivo_dados_alunos_json:
             dados_alunos = json.load(arquivo_dados_alunos_json)
@@ -17,31 +17,36 @@ def carregar_dados_alunos():
         }
     return dados_alunos
 
-def editar_turma():
-    dados = carregar_dados_alunos()
-    turma_id = input("\nQual o ID da turma que você quer editar?\n")
-    if turma_id in dados['turmas']:
-        turma = dados['turmas'][turma_id]
-        print(f'Editando dados da turma ID: {turma_id}')
+def editar_aluno(ra_aluno):
+    dados = carregar_dados()
+    if ra_aluno in dados['alunos']:
+        aluno = dados['alunos'][ra_aluno]
+        print(f'Editando dados do aluno RA: {ra_aluno}')
         while True:
-            print(f'1 - Nome: {turma["Nome"]}')
+            print(f'1 - Nome: {aluno["Nome"]}')
+            print(f'2 - Idade: {aluno["Idade"]}')
+            print(f'3 - E-mail: {aluno["E-mail"]}')
 
-            campo = input('Escolha o campo que deseja editar (1), 2 para cancelar ou 3 para salvar: ')
+            campo = input('Escolha o campo que deseja editar (1/2/3), 4 para cancelar ou 5 para salvar: ')
             if campo == '1':
-                turma['Nome'] = input('Novo Nome: ')
+                aluno['Nome'] = input('Novo Nome: ')
             elif campo == '2':
-                break
+                aluno['Idade'] = input('Nova Idade: ')
             elif campo == '3':
-                dados['turmas'][turma_id] = turma
+                aluno['E-mail'] = input('Novo E-mail: ')
+            elif campo == '4':
+                break
+            elif campo == '5':
+                dados['alunos'][ra_aluno] = aluno
                 with open('dados.json', 'w') as arquivo_json:
                     json.dump(dados, arquivo_json, indent=4)
                 print('Cadastro atualizado com sucesso.')
                 return True
             else:
                 print('Opção inválida. Tente novamente.')
-        if campo != '2':
+        if campo != '4':
             print('Cadastro atualizado com sucesso.')
             return False
     else:
-        print(f'A turma com ID {turma_id} não foi encontrada.')
+        print(f'O aluno com RA {ra_aluno} não foi encontrado.')
         return False

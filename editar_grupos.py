@@ -1,82 +1,65 @@
-import criar_grupos
+import json
+
+def carregar_dados():
+    try:
+        with open('dados.json', 'r') as arquivo_json:
+            dados = json.load(arquivo_json)
+    except FileNotFoundError:
+        dados = {
+            "alunos": {},
+            "turmas": {},
+            "ciclos": {},
+            "grupos": {},
+            "notas": {}
+        }
+    return dados
 
 def editar_grupo():
-    grupos = {}
-    def adicionar_aluno_a_grupo():
-        # Exibir os grupos disponíveis
-            print("Grupos disponíveis:")
-            for grupo in grupos:
-                print(f"- Nome do Grupo: {grupo}")
-
-            nome_grupo = input("Selecione o nome do grupo para adicionar um aluno: ")
-
-            # Verificar se o grupo existe
-            grupo_encontrado = grupos.get(nome_grupo)
-
-            if grupo_encontrado:
-                id_turma = grupo_encontrado['turma']['id_turma']
-
-                # Exibir os alunos disponíveis na turma
-                print(f"Alunos da turma {id_turma}:")
-                alunos_turma = grupo_encontrado['turma']['alunos']
-                for aluno in alunos_turma:
-                    print(f"- Nome do Aluno: {aluno['nome']} (RA: {aluno['ra']})")
-
-                ra_aluno = input("Digite o RA do aluno para adicionar ao grupo: ")
-
-                # Verificar se o aluno existe na turma
-                aluno_encontrado = None
-                for aluno in alunos_turma:
-                    if aluno['ra'] == ra_aluno:
-                        aluno_encontrado = aluno
-                        break
-
-                if aluno_encontrado:
-                    if aluno_encontrado not in grupo_encontrado['alunos']:
-                        grupo_encontrado['alunos'].append(aluno_encontrado)
-                        print(f"Aluno adicionado ao grupo '{nome_grupo}'.")
-                    else:
-                        print("Aluno já está no grupo.")
+    dados = carregar_dados()
+    grupo_id = input("Informe o ID do grupo a ser editado: ")
+    if grupo_id in dados['grupos']:
+        grupo = dados['grupos'][grupo_id]
+        print(f'Editando dados do grupo ID: {grupo_id}')
+        while True:
+            print(f'1 - Nome: {grupo["Nome"]}')
+            print('Alunos no grupo:')
+            for ra_aluno in grupo['Alunos']:
+                if ra_aluno in dados['alunos']:
+                    aluno = dados['alunos'][ra_aluno]
+                    print(f' - RA: {aluno["RA"]}, Nome: {aluno["Nome"]}')
                 else:
-                    print("Aluno não encontrado na turma.")
+                    print(f' - RA: {ra_aluno}, Aluno não encontrado no sistema')
+
+            campo = input('Escolha o campo que deseja editar (1 para Nome, 2 para adicionar aluno, 3 para remover aluno, 4 para cancelar, 5 para salvar): ')
+            if campo == '1':
+                grupo['Nome'] = input('Novo Nome: ')
+            elif campo == '2':
+                ra_aluno = input('Informe o RA do aluno a ser adicionado: ')
+                if ra_aluno in dados['alunos']:
+                    grupo['Alunos'].append(ra_aluno)
+                    print(f'Aluno com RA {ra_aluno} adicionado ao grupo.')
+                else:
+                    print(f"O aluno com RA {ra_aluno} não existe no sistema.")
+            elif campo == '3':
+                ra_aluno = input('Informe o RA do aluno a ser removido: ')
+                if ra_aluno in grupo['Alunos']:
+                    grupo['Alunos'].remove(ra_aluno)
+                    print(f'Aluno com RA {ra_aluno} removido do grupo.')
+                else:
+                    print(f"O aluno com RA {ra_aluno} não está no grupo.")
+            elif campo == '4':
+                break
+            elif campo == '5':
+                dados['grupos'][grupo_id] = grupo
+                with open('dados.json', 'w') as arquivo_json:
+                    json.dump(dados, arquivo_json, indent=4)
+                print('Cadastro atualizado com sucesso.')
+                return True
             else:
-                print("Grupo não encontrado.")
-
-        # Função para remover um aluno de um grupo
-    def remover_aluno_de_grupo():
-        # Exibir os grupos disponíveis
-        print("Grupos disponíveis:")
-    for grupo in grupos:
-            print(f"- Nome do Grupo: {grupo}")
-
-            nome_grupo = input("Selecione o nome do grupo para remover um aluno: ")
-
-            # Verificar se o grupo existe
-            grupo_encontrado = grupos.get(nome_grupo)
-
-            if grupo_encontrado:
-                    # Exibir os alunos no grupo
-                    alunos_no_grupo = grupo_encontrado['alunos']
-                    if not alunos_no_grupo:
-                        print(f"Grupo '{nome_grupo}' está vazio.")
-                    else:
-                        print(f"Alunos no grupo '{nome_grupo}':")
-                        for aluno in alunos_no_grupo:
-                            print(f"- Nome do Aluno: {aluno['nome']} (RA: {aluno['ra']})")
-
-                        ra_aluno = input("Digite o RA do aluno para remover do grupo: ")
-
-                        # Verificar se o aluno está no grupo
-                        aluno_encontrado = None
-                        for aluno in alunos_no_grupo:
-                            if aluno['ra'] == ra_aluno:
-                                aluno_encontrado = aluno
-                                break
-
-                        if aluno_encontrado:
-                            grupo_encontrado['alunos'].remove(aluno_encontrado)
-                            print(f"Aluno removido do grupo '{nome_grupo}'.")
-                        else:
-                            print("Aluno não encontrado no grupo.")
-            else:
-                print("Grupo não encontrado.")
+                print('Opção inválida. Tente novamente.')
+        if campo != '4':
+            print('Cadastro atualizado com sucesso.')
+            return False
+    else:
+        print(f'O grupo com ID {grupo_id} não foi encontrado.')
+        return False

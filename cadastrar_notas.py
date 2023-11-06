@@ -39,19 +39,19 @@ def func_cadastrar_notas():
         print('O aluno não está nesta turma.')
         return False
 
-    ciclos_turma = dados['turmas'][turma_id]['ciclos']
+    ciclos_turma = dados['turmas'][turma_id].get('ciclos', [])
     if not ciclos_turma:
         print('A turma não possui ciclos cadastrados.')
         return False
 
     print('Ciclos disponíveis para lançar nota:')
-    for ciclo_id in ciclos_turma:
-        if ciclo_id in dados['ciclos']:
-            ciclo = dados['ciclos'][ciclo_id]
-            print(f'Ciclo ID: {ciclo_id}, Nome: {ciclo["Nome"]}, Data de Início: {ciclo["Data de Início"]}, Data de Fim: {ciclo["Data de Fim"]}')
+    for ciclo in ciclos_turma:
+        print(f'Ciclo ID: {ciclo["ID"]}, Nome: {ciclo["Nome"]}, Data de Início: {ciclo["Data de Início"]}, Data de Fim: {ciclo["Data de Fim"]}')
 
     ciclo_id = input('Informe o ID do ciclo para lançar a nota: ')
-    if ciclo_id not in ciclos_turma:
+    ciclo_encontrado = next((c for c in ciclos_turma if c["ID"] == ciclo_id), None)
+
+    if not ciclo_encontrado:
         print('A turma não possui este ciclo.')
         return False
 
