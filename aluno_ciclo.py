@@ -20,7 +20,7 @@ def registrar_ciclos_e_notas():
             id_turma = input("Digite o ID da turma: ")  # Defina o id_turma
             peso_ciclo = float(input(f"Digite o peso para o ciclo '{ciclo}': "))
             data_inicio = input(f"Quando começará o ciclo '{ciclo}'? ")
-            data_final = input(f"Quando terminara o ciclo '{ciclo}'? ")
+            data_final = input(f"Quando terminará o ciclo '{ciclo}'? ")
             pesos_ciclos[ciclo] = peso_ciclo
             ciclos_entry_list.append({
                 'ciclo': ciclo,
