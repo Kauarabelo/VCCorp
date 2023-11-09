@@ -3,7 +3,7 @@ from editar_alunos import editar_aluno
 
 def carregar_dados_alunos():
     try:
-        with open('dados.json', 'r') as arquivo_dados_alunos_json:
+        with open('dados.json', '') as arquivo_dados_alunos_json:
             dados_alunos = json.load(arquivo_dados_alunos_json)
     except FileNotFoundError:
         # Se o arquivo não existir, cria uma estrutura vazia
