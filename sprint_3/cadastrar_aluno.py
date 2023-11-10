@@ -26,14 +26,26 @@ def func_cadastrar_alunos():
     while True:
         ra_aluno = input('Informe o RA do aluno a ser cadastrado: ')
 
-        # Check if the RA exists in the JSON file
-        if ra_aluno_existe(ra_aluno, dados_alunos):
-            print(f'O aluno com RA {ra_aluno} já está cadastrado.')
-        else:
+        
+        while True:
             nome_aluno = input('Qual nome do aluno a ser cadastrado? ')
+            if nome_aluno.isalpha() and len(nome_aluno)<=70:
+                break
+            else:
+                print('Nome inválido, escreva apenas com letras')
+        while True:        
             idade_aluno = input('Qual idade do aluno a ser cadastrado? ')
+            if idade_aluno.isdigit() and int(idade_aluno) <=130:
+                break
+            else:
+                print('Idade inválida, escreva apenas com números')
+        while True:    
             email_aluno = input('Qual e-mail do aluno a ser cadastrado? ')
-
+            
+            if '@' and '.'in email_aluno:
+                break
+            else:
+                print('E-mail inválido, escreva novamente')
             novo_aluno = {
                 'RA': ra_aluno,
                 'Nome': nome_aluno,

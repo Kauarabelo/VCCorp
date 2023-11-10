@@ -56,7 +56,12 @@ def func_cadastrar_ciclos():
         nome_ciclo = input('Qual o nome do ciclo? ')
         data_inicio = input('Qual a data de início do ciclo? ')
         data_fim = input('Qual a data de fim do ciclo? ')
-        peso_nota = input('Qual o peso da nota do ciclo? ')
+        while True:
+            peso_nota = input('Qual o peso da nota do ciclo? ')
+            if peso_nota.isdigit():
+                break
+            else:
+                print('Peso inválido, o peso tem que ser em números')
 
         novo_ciclo = {
             'ID': id_ciclo,
@@ -66,13 +71,13 @@ def func_cadastrar_ciclos():
             'Peso da Nota': peso_nota,
         }
 
-        # Adiciona o ciclo à lista de ciclos da turma
+             # Adiciona o ciclo à lista de ciclos da turma
         if 'ciclos' not in dados['turmas'][id_turma]:
             dados['turmas'][id_turma]['ciclos'] = []
-        dados['turmas'][id_turma]['ciclos'].append(novo_ciclo)
+            dados['turmas'][id_turma]['ciclos'].append(novo_ciclo)
 
         dados['ciclos'][id_ciclo] = novo_ciclo
         with open('dados.json', 'w') as arquivo_json:
             json.dump(dados, arquivo_json, indent=4)
-        print('Cadastro do ciclo realizado com sucesso e vinculado à turma.')
-        return True
+            print('Cadastro do ciclo realizado com sucesso e vinculado à turma.')
+            return True
