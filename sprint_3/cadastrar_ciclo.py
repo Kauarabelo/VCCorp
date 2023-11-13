@@ -1,7 +1,6 @@
 import json
 from editar_ciclos import editar_ciclo
 
-
 def carregar_dados():
     try:
         with open('dados.json', 'r') as arquivo_json:
@@ -81,3 +80,4 @@ def func_cadastrar_ciclos():
             json.dump(dados, arquivo_json, indent=4)
             print('Cadastro do ciclo realizado com sucesso e vinculado à turma.')
             return True
+

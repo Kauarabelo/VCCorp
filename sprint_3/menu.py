@@ -9,6 +9,8 @@ from editar_turmas import editar_turma
 from editar_grupos import editar_grupo
 from editar_ciclos import editar_ciclo  
 from editar_notas import editar_nota
+from cadastrar_nota_grupo import cadastrar_notas_grupos
+from editar_nota_grupo import editar_nota_grupos
 
 def carregar_dados():
     try:
@@ -66,7 +68,7 @@ while True:
             elif menu_opcao2 == "0":
                 break
             else:
-                print("Opção inválida. Saindo.")
+                print("Opção inválida. Tente novamente")
 
     elif menu_opcao1 == "3":
         while True:
@@ -82,7 +84,7 @@ while True:
             elif menu_opcao2 == "0":
                 break
             else:
-                print("Opção inválida. Saindo.")
+                print("Opção inválida. Tente novamente")
 
     elif menu_opcao1 == "4":
         menu_opcao2 = input("Qual ação você quer fazer?\nA - Cadastrar\nB - Editar\n0 - Voltar\n").strip().lower()
@@ -97,25 +99,39 @@ while True:
         elif menu_opcao2 == "0":
             break
         else:
-            print("Opção inválida. Saindo.")
+            print("Opção inválida. Tente novamente")
             
     elif menu_opcao1 == "5":
         while True:
             menu_opcao2 = input("Qual ação você quer fazer?\nA - Cadastrar\nB - Editar\n0 - Voltar\n").strip().lower()
             if menu_opcao2 == "a":
-                if func_cadastrar_notas():
-                    print("\nRetornando ao menu principal.")
-                    break
+                    escolha_nota = input("Qual nota você quer cadastrar? Nota do grupo(a) ou de um aluno(b)?").strip().lower()
+                    if escolha_nota == 'a':
+                       if cadastrar_notas_grupos():
+                            print("\nRetornando ao menu principal.")
+                            break
+                    elif escolha_nota == 'b':
+                        if func_cadastrar_notas():
+                            print("\nRetornando ao menu principal.")
+                            break
+                    else:
+                        print("Opção inválida. Tente novamente")
             elif menu_opcao2 == "b":
-                if editar_nota():
-                    print("\nRetornando ao menu principal.")
-                    break
+                escolha_nota2 = input("Quais notas você quer editar? A dos grupo(a) ou de alunos(b)").strip().lower()
+                if escolha_nota2 == 'a':
+                    if editar_nota_grupos():
+                        print("\nRetornando ao menu principal.")
+                        break
+                elif escolha_nota2 == 'b':
+                    if editar_nota():
+                        print("\nRetornando ao menu principal.")
+                        break
             elif menu_opcao2 == "0":
                 break
             else:
-                print("Opção inválida. Saindo.")
+                print("Opção inválida. Tente novamente")
 
     elif menu_opcao1 == "6":
         break
     else:
-        print("Opção inválida. Saindo.")
+        print("Opção inválida.")
