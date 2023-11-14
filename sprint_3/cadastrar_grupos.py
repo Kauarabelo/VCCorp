@@ -47,9 +47,9 @@ def func_cadastrar_grupos():
 
             # Adicione outros campos relevantes
             novo_grupo = {
-                'ID': grupo_id,
-                'Nome': nome_grupo,
-                'Alunos': alunos_grupo,  # Adicione os RAs dos alunos ao grupo
+                'id': grupo_id,
+                'nome': nome_grupo,
+                'alunos': alunos_grupo,  # Adicione os RAs dos alunos ao grupo
                 # Adicione outros campos relevantes
             }
 

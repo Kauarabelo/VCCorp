@@ -33,9 +33,9 @@ def func_cadastrar_turmas():
             # Adicione outros campos relevantes
 
             nova_turma = {
-                'ID': id_turma,
-                'Nome': nome_turma,
-                'Data de Início': data_inicio,
+                'id': id_turma,
+                'nome': nome_turma,
+                'data_de_inicio': data_inicio,
                 # Adicione outros campos relevantes
             }
 

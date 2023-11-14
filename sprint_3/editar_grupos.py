@@ -21,12 +21,12 @@ def editar_grupo():
         grupo = dados['grupos'][grupo_id]
         print(f'Editando dados do grupo ID: {grupo_id}')
         while True:
-            print(f'1 - Nome: {grupo["Nome"]}')
+            print(f'1 - Nome: {grupo["nome"]}')
             print('Alunos no grupo:')
-            for ra_aluno in grupo['Alunos']:
+            for ra_aluno in grupo['alunos']:
                 if ra_aluno in dados['alunos']:
                     aluno = dados['alunos'][ra_aluno]
-                    print(f' - RA: {aluno["RA"]}, Nome: {aluno["Nome"]}')
+                    print(f' - RA: {aluno["ra"]}, Nome: {aluno["nome"]}')
                 else:
                     print(f' - RA: {ra_aluno}, Aluno não encontrado no sistema')
 

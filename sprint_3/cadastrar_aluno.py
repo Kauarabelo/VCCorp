@@ -49,10 +49,10 @@ def func_cadastrar_alunos():
                 print('E-mail inválido, escreva novamente')
         
         novo_aluno = {
-            'RA': ra_aluno,
-            'Nome': nome_aluno,
-            'Idade': idade_aluno,
-            'E-mail': email_aluno,
+            'ra': ra_aluno,
+            'nome': nome_aluno,
+            'idade': idade_aluno,
+            'email': email_aluno,
             'turmas': [],
             'grupos': []
         }

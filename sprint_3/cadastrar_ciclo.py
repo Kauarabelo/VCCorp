@@ -35,7 +35,7 @@ def func_cadastrar_ciclos():
     if 'ciclos' in dados['turmas'][id_turma]:
         print('Ciclos já vinculados à turma:')
         for ciclo in dados['turmas'][id_turma]['ciclos']:
-            print(f'ID: {ciclo["ID"]}, Nome: {ciclo["Nome"]}')
+            print(f'ID: {ciclo["id"]}, Nome: {ciclo["nome"]}')
     else:
         print('A turma ainda não possui ciclos vinculados.')
 
@@ -63,11 +63,11 @@ def func_cadastrar_ciclos():
                 print('Peso inválido, o peso tem que ser em números')
 
         novo_ciclo = {
-            'ID': id_ciclo,
-            'Nome': nome_ciclo,
-            'Data de Início': data_inicio,
-            'Data de Fim': data_fim,
-            'Peso da Nota': peso_nota,
+            'id': id_ciclo,
+            'nome': nome_ciclo,
+            'data_de_inicio': data_inicio,
+            'data_de_fim': data_fim,
+            'peso_da_nota': peso_nota,
         }
 
              # Adiciona o ciclo à lista de ciclos da turma

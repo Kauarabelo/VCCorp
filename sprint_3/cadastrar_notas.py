@@ -32,7 +32,7 @@ def func_cadastrar_notas():
     print('Turmas disponíveis para lançar nota:')
     for turma_id in turmas_aluno:
         if turma_id in dados['turmas']:
-            print(f'Turma ID: {turma_id}, Nome: {dados["turmas"][turma_id]["Nome"]}')
+            print(f'Turma ID: {turma_id}, Nome: {dados["turmas"][turma_id]["nome"]}')
 
     turma_id = input('Informe o ID da turma para lançar a nota: ')
     if turma_id not in turmas_aluno:
@@ -46,7 +46,7 @@ def func_cadastrar_notas():
 
     print('Ciclos disponíveis para lançar nota:')
     for ciclo in ciclos_turma:
-        print(f'Ciclo ID: {ciclo["ID"]}, Nome: {ciclo["Nome"]}, Data de Início: {ciclo["Data de Início"]}, Data de Fim: {ciclo["Data de Fim"]}')
+        print(f'Ciclo ID: {ciclo["id"]}, Nome: {ciclo["nome"]}, Data de Início: {ciclo["data_de_inicio"]}, Data de Fim: {ciclo["data_de_fim"]}')
 
     ciclo_id = input('Informe o ID do ciclo para lançar a nota: ')
     ciclo_encontrado = next((c for c in ciclos_turma if c["ID"] == ciclo_id), None)
@@ -62,10 +62,10 @@ def func_cadastrar_notas():
 
     # Adicione a nota aos dados
     nova_nota = {
-        'AlunoRA': ra_aluno,
-        'CicloID': ciclo_id,
-        'TurmaID': turma_id,
-        'Nota': nota
+        'aluno_ra': ra_aluno,
+        'ciclo_id': ciclo_id,
+        'turma_id': turma_id,
+        'nota': nota
     }
     dados['notas'][get_next_nota_id(dados['notas'])] = nova_nota
 

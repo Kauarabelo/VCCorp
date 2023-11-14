@@ -30,21 +30,21 @@ def editar_ciclo():
 
     print(f'Editando o ciclo com ID {id_ciclo}. Deixe em branco se não deseja fazer alterações.')
 
-    novo_nome = input(f'Novo Nome ({ciclo["Nome"]}): ')
+    novo_nome = input(f'Novo Nome ({ciclo["nome"]}): ')
     if novo_nome:
-        ciclo['Nome'] = novo_nome
+        ciclo['nome'] = novo_nome
 
-    nova_data_inicio = input(f'Nova Data de Início ({ciclo["Data de Início"]}): ')
+    nova_data_inicio = input(f'Nova Data de Início ({ciclo["data_de_inicio"]}): ')
     if nova_data_inicio:
-        ciclo['Data de Início'] = nova_data_inicio
+        ciclo['data_de_inicio'] = nova_data_inicio
 
-    nova_data_fim = input(f'Nova Data de Fim ({ciclo["Data de Fim"]}): ')
+    nova_data_fim = input(f'Nova Data de Fim ({ciclo["data_de_fim"]}): ')
     if nova_data_fim:
-        ciclo['Data de Fim'] = nova_data_fim
+        ciclo['data_de_fim'] = nova_data_fim
 
-    novo_peso = input(f'Novo Peso da Nota ({ciclo["Peso da Nota"]}): ')
+    novo_peso = input(f'Novo Peso da Nota ({ciclo["peso_da_nota"]}): ')
     if novo_peso:
-        ciclo['Peso da Nota'] = novo_peso
+        ciclo['peso_da_nota'] = novo_peso
 
     with open('dados.json', 'w') as arquivo_json:
         json.dump(dados, arquivo_json, indent=4)

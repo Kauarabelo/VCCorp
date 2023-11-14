@@ -25,17 +25,17 @@ def editar_nota():
         nota = dados['notas'][nota_id]
         print(f'Editando nota com ID: {nota_id}')
         while True:
-            print(f' Aluno: {dados["alunos"].get(nota["AlunoRA"], {}).get("Nome")}')
-            print(f' Ciclo: {dados["ciclos"].get(nota["CicloID"], {}).get("Nome")}')
-            print(f' Turma: {dados["turmas"].get(nota["TurmaID"], {}).get("Nome")}')
-            print(f' Nota: {nota["Nota"]}')
+            print(f' Aluno: {dados["alunos"].get(nota["aluno_ra"], {}).get("nome")}')
+            print(f' Ciclo: {dados["ciclos"].get(nota["ciclo_id"], {}).get("nome")}')
+            print(f' Turma: {dados["turmas"].get(nota["turma_id"], {}).get("nome")}')
+            print(f' Nota: {nota["nota"]}')
 
             campo = input('Escolha o campo que deseja editar alguma nota(S/N)? ').strip().lower()
 
             if campo == 's':
                 nova_nota = float(input('Informe a nova nota: '))
                 if 0 <= nova_nota <= 10:
-                    nota["Nota"] = nova_nota
+                    nota["nota"] = nova_nota
                 else:
                     print('Nota inválida. A nota não foi alterada.')
 

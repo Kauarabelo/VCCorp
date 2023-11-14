@@ -1,7 +1,5 @@
 import json
 
-
-
 def carregar_dados_alunos():
     try:
         with open('dados.json', 'r') as arquivo_dados_alunos_json:
@@ -24,11 +22,11 @@ def editar_turma():
         turma = dados['turmas'][turma_id]
         print(f'Editando dados da turma ID: {turma_id}')
         while True:
-            print(f'1 - Nome: {turma["Nome"]}')
+            print(f'1 - Nome: {turma["nome"]}')
 
             campo = input('Escolha o campo que deseja editar (1), 2 para cancelar ou 3 para salvar: ')
             if campo == '1':
-                turma['Nome'] = input('Novo Nome: ')
+                turma['nome'] = input('Novo Nome: ')
             elif campo == '2':
                 break
             elif campo == '3':
