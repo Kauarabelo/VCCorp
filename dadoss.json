@@ -1,0 +1,36 @@
+{
+    "alunos": {
+        "Ra1": {
+            "ra": "Ra1",
+            "nome": "Alejandro",
+            "idade": "25",
+            "email": "Alejandro@gmail.com",
+            "turmas": [],
+            "grupos": []
+        },
+        "Ra2": {
+            "ra": "Ra2",
+            "nome": "Sofia",
+            "idade": "23",
+            "email": "Sofia@example.com",
+            "turmas": [],
+            "grupos": []
+        },
+        "Ra3": {
+            "ra": "Ra3",
+            "nome": "Marcos",
+            "idade": "22",
+            "email": "Marcos@example.com",
+            "turmas": [],
+            "grupos": []
+        },
+        "Ra4": {
+            "ra": "Ra4",
+            "nome": "Luiza",
+            "idade": "24",
+            "email": "Luiza@example.com",
+            "turmas": [],
+            "grupos": []
+        }
+    }
+}
