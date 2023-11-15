@@ -35,21 +35,19 @@ while True:
         while True:  
             menu_opcao2 = input("Qual ação você quer fazer?\nA - Cadastrar\nB - Editar\n0 - Voltar\n").strip().lower()
             if menu_opcao2 == "a":
-                menu_opcao3 = input("Qual ação você quer fazer?\n1 - Cadastrar manualmente \n2 - Importar dados de excel\n0 - Voltar\n").strip().lower() 
+                menu_opcao3 = input("Qual ação você quer fazer?\n1 - Cadastrar manualmente\n2 - Importar dados de excel\n0 - Voltar\n").strip().lower() 
                 if menu_opcao3 == "1":
                     if func_cadastrar_alunos():
                         print("\nRetornando ao menu principal.")
-                        break  
                     else:
-                        print("\nO cadastro foi cancelado.\nRetornando ao menu principal.")
-                        break  
-                if menu_opcao3 == "2":
+                        print("\nO cadastro foi cancelado.")
+                    break  
+                elif menu_opcao3 == "2":
                     if iniciar_importacao():
                         print("\nRetornando ao menu principal.")
-                        break  
                     else:
-                        print("\nO cadastro foi cancelado.\nRetornando ao menu principal.")
-                        break
+                        print("\nO cadastro foi cancelado.")
+                    break  
 
             elif menu_opcao2 == "b":
                 ra_aluno = input("Informe o RA do aluno que você quer editar: ")
