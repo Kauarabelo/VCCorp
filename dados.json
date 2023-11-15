@@ -1,0 +1,16 @@
+{
+    "alunos": {
+        "Ra1": {
+            "ra": "Ra1",
+            "nome": "Alejandro",
+            "idade": "25",
+            "email": "Alejandro@gmail.com",
+            "turmas": [],
+            "grupos": []
+        }
+    },
+    "turmas": {},
+    "ciclos": {},
+    "grupos": {},
+    "notas": {}
+}
