@@ -9,6 +9,9 @@ from editar_turmas import editar_turma
 from editar_grupos import editar_grupo
 from editar_ciclos import editar_ciclo  
 from editar_notas import editar_nota
+from importar_dados_ import iniciar_importacao
+from exportar_excel import exportar_para_excel
+
 
 def carregar_dados():
     try:
@@ -33,12 +36,20 @@ while True:
         while True:  
             menu_opcao2 = input("Qual ação você quer fazer?\nA - Cadastrar\nB - Editar\n0 - Voltar\n").strip().lower()
             if menu_opcao2 == "a":
-                if func_cadastrar_alunos():
-                    print("\nRetornando ao menu principal.")
+                menu_opcao3 = input("Qual ação você quer fazer?\n1 - Cadastrar manualmente\n2 - Importar dados de excel\n0 - Voltar\n").strip().lower() 
+                if menu_opcao3 == "1":
+                    if func_cadastrar_alunos():
+                        print("\nRetornando ao menu principal.")
+                    else:
+                        print("\nO cadastro foi cancelado.")
                     break  
-                else:
-                    print("\nO cadastro foi cancelado.\nRetornando ao menu principal.")
+                elif menu_opcao3 == "2":
+                    if iniciar_importacao():
+                        print("\nRetornando ao menu principal.")
+                    else:
+                        print("\nO cadastro foi cancelado.")
                     break  
+
             elif menu_opcao2 == "b":
                 ra_aluno = input("Informe o RA do aluno que você quer editar: ")
                 if editar_aluno(ra_aluno):
