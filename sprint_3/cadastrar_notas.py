@@ -65,9 +65,9 @@ def func_cadastrar_notas():
         'aluno_ra': ra_aluno,
         'ciclo_id': ciclo_id,
         'turma_id': turma_id,
-        'nota': nota
+        'score': nota
     }
-    dados['notas'][get_next_nota_id(dados['notas'])] = nova_nota
+    dados['score'][get_next_nota_id(dados['score'])] = nova_nota
 
     with open('dados.json', 'w') as arquivo_json:
         json.dump(dados, arquivo_json, indent=4)

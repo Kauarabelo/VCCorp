@@ -70,7 +70,7 @@ def func_cadastrar_ciclos():
             'peso_da_nota': peso_nota,
         }
 
-             # Adiciona o ciclo à lista de ciclos da turma
+        # Adiciona o ciclo à lista de ciclos da turma
         if 'ciclos' not in dados['turmas'][id_turma]:
             dados['turmas'][id_turma]['ciclos'] = []
             dados['turmas'][id_turma]['ciclos'].append(novo_ciclo)
