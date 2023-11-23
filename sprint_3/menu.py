@@ -10,7 +10,7 @@ from editar_grupos import editar_grupo
 from editar_ciclos import editar_ciclo  
 from editar_notas import editar_nota
 from importar_dados_ import iniciar_importacao
-from exportar_excel import exportar_para_excel
+#from exportar_excel import exportar_para_excel
 
 
 def carregar_dados():

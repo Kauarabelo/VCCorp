@@ -7,10 +7,57 @@
             "email": "Alejandro@gmail.com",
             "turmas": [],
             "grupos": []
+        },
+        "1": {
+            "ra": "1",
+            "nome": "Yah",
+            "idade": "22",
+            "email": "yan@yan.com",
+            "turmas": [
+                "1"
+            ],
+            "grupos": []
         }
     },
-    "turmas": {},
-    "ciclos": {},
+    "turmas": {
+        "1": {
+            "id": "1",
+            "nome": "T1",
+            "data_de_inicio": "12",
+            "ciclos": [
+                {
+                    "id": "1",
+                    "nome": "aa",
+                    "data_de_inicio": "12",
+                    "data_de_fim": "21",
+                    "peso_da_nota": "3"
+                },
+                {
+                    "id": "2",
+                    "nome": "bb",
+                    "data_de_inicio": "12",
+                    "data_de_fim": "23",
+                    "peso_da_nota": "2"
+                }
+            ]
+        }
+    },
+    "ciclos": {
+        "1": {
+            "id": "1",
+            "nome": "aa",
+            "data_de_inicio": "12",
+            "data_de_fim": "21",
+            "peso_da_nota": "3"
+        },
+        "2": {
+            "id": "2",
+            "nome": "bb",
+            "data_de_inicio": "12",
+            "data_de_fim": "23",
+            "peso_da_nota": "2"
+        }
+    },
     "grupos": {},
     "notas": {}
 }
