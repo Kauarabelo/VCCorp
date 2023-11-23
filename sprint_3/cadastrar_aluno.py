@@ -13,6 +13,7 @@ def carregar_dados_alunos():
             "ciclos": {},
             "grupos": {},
             "notas": {}
+        
         }
     return dados_alunos
 
@@ -73,18 +74,21 @@ def func_cadastrar_alunos():
             elif menu_cad_aluno_1 == '3':
                 email_aluno = input('Novo E-mail: ')
             elif menu_cad_aluno_1 == '4':
+
                 # Salva os dados do aluno atual e permite cadastrar outro aluno
                 dados_alunos['alunos'][ra_aluno] = novo_aluno
                 with open('dados.json', 'w') as arquivo_dados_alunos_json:
                     json.dump(dados_alunos, arquivo_dados_alunos_json, indent=4)
                 print('Cadastro realizado com sucesso. Continuando com o próximo aluno.')
                 break  # Sai do loop interno e permite cadastrar outro aluno
+
             elif menu_cad_aluno_1 == '5':
                 dados_alunos['alunos'][ra_aluno] = novo_aluno
                 with open('dados.json', 'w') as arquivo_dados_alunos_json:
                     json.dump(dados_alunos, arquivo_dados_alunos_json, indent=4)
                 print('Cadastro realizado com sucesso.')
                 return True
+            
             elif menu_cad_aluno_1 == '6':
                 print('Cadastro cancelado.')
                 return False

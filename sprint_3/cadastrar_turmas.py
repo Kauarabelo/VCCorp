@@ -30,13 +30,12 @@ def func_cadastrar_turmas():
         else:
             nome_turma = input('Qual o nome da turma? ')
             data_inicio = input('Qual a data de início da turma? ')
-            # Adicione outros campos relevantes
 
             nova_turma = {
                 'id': id_turma,
                 'nome': nome_turma,
                 'data_de_inicio': data_inicio,
-                # Adicione outros campos relevantes
+                
             }
 
             dados['turmas'][id_turma] = nova_turma
