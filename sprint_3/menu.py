@@ -3,14 +3,15 @@ from cadastrar_aluno import func_cadastrar_alunos
 from cadastrar_turmas import func_cadastrar_turmas
 from cadastrar_grupos import func_cadastrar_grupos
 from cadastrar_ciclo import func_cadastrar_ciclos
-from cadastrar_notas import func_cadastrar_notas
+#from cadastrar_notas import func_cadastrar_notas
 from editar_alunos import editar_aluno
 from editar_turmas import editar_turma
 from editar_grupos import editar_grupo
 from editar_ciclos import editar_ciclo  
 from editar_notas import editar_nota
-from media_final import calcular_media_ponderada
-from importar_dados_ import iniciar_importacao
+#from media_final import calcular_media_ponderada
+#from importar_dados_ import iniciar_importacao
+#from exportar_excel import exportar_para_excel
 
 def carregar_dados():
     try:
