@@ -49,6 +49,7 @@ while True:
                     else:
                         print("\nO cadastro foi cancelado.")
                     break  
+                
 
             elif menu_opcao2 == "b":
                 ra_aluno = input("Informe o RA do aluno que você quer editar: ")
