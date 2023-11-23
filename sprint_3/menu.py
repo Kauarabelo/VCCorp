@@ -9,9 +9,8 @@ from editar_turmas import editar_turma
 from editar_grupos import editar_grupo
 from editar_ciclos import editar_ciclo  
 from editar_notas import editar_nota
+from media_final import calcular_media_ponderada
 from importar_dados_ import iniciar_importacao
-from exportar_excel import exportar_para_excel
-
 
 def carregar_dados():
     try:
@@ -112,7 +111,7 @@ while True:
             
     elif menu_opcao1 == "5":
         while True:
-            menu_opcao2 = input("Qual ação você quer fazer?\nA - Cadastrar\nB - Editar\n0 - Voltar\n").strip().lower()
+            menu_opcao2 = input("Qual ação você quer fazer?\nA - Cadastrar\nB - Editar\nC - FEE\n0 - Voltar\n").strip().lower()
             if menu_opcao2 == "a":
                 func_cadastrar_notas()
                 print("\nRetornando ao menu principal.")
@@ -121,6 +120,12 @@ while True:
                 editar_nota()
                 print("\nRetornando ao menu principal.")
                 break
+
+            elif menu_opcao2 == "c":
+                calcular_media_ponderada()
+                print("\nRetornando ao menu principal.")
+                break
+
             elif menu_opcao2 == "0":
                 break
             else:
