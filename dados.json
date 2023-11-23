@@ -77,6 +77,12 @@
             "ciclo_id": "1",
             "turma_id": "1",
             "score": 6.0
+        },
+        "ID4": {
+            "aluno_ra": "1",
+            "ciclo_id": "1",
+            "turma_id": "1",
+            "score": 6.0
         }
     }
 }

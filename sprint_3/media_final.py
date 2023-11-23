@@ -1,14 +1,12 @@
 import json
-from cadastrar_notas import func_cadastrar_notas
 
 def calcular_media_ponderada():
-    global dados
     notas = dados.get('notas', {})
-
+    
     total_pesos = 0
     soma_notas_pesadas = 0
 
-    for nota_id, nota in notas.items():
+    for nota in notas.values():
         peso_ciclo = float(nota['ciclo']['peso_da_nota'])
         score = float(nota['score'])
 
@@ -22,8 +20,17 @@ def calcular_media_ponderada():
     return round(media_ponderada, 2)
 
 # Carrega os dados do arquivo JSON
-with open('dados.json', 'r') as arquivo_json:
-    dados = json.load(arquivo_json)
+try:
+    with open('dados.json', 'r') as arquivo_json:
+        dados = json.load(arquivo_json)
+except FileNotFoundError:
+    print('Arquivo "dados.json" não encontrado. Certifique-se de que o arquivo existe.')
+    exit(1)
+
+# Verifica se existem notas nos dados
+if 'notas' not in dados:
+    print('Não há notas disponíveis para calcular a média ponderada.')
+    exit(1)
 
 # Calcula a média ponderada
 media_ponderada_fee = calcular_media_ponderada()
