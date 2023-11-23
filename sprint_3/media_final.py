@@ -1,6 +1,5 @@
 import json
 
-
 def carregar_dados():
     try:
         with open('dados.json', 'r') as arquivo_json:
@@ -17,40 +16,40 @@ def carregar_dados():
 
 def calcular_media_ponderada():
     dados = carregar_dados()
-    
     notas = dados.get('notas', {})
-    
-    total_pesos = 0
-    soma_notas_pesadas = 0
 
-    for nota in notas.values():
-        peso_ciclo = float(nota['ciclo']['peso_da_nota'])
-        score = float(nota['score'])
+    media_por_aluno = {}
 
-        total_pesos += peso_ciclo
-        soma_notas_pesadas += (score * peso_ciclo)
+    for nota_id, nota in notas.items():
+        aluno_ra = nota['aluno_ra']
+        ciclo_id = nota['ciclo_id']
+        score = nota['score']
+        peso_ciclo = dados['ciclos'][ciclo_id]['peso_da_nota']
 
-    if total_pesos == 0:
-        return 0  # Evitar divisão por zero
+        if aluno_ra not in media_por_aluno:
+            media_por_aluno[aluno_ra] = {'total_score': 0, 'total_peso': 0}
 
-    media_ponderada = soma_notas_pesadas / total_pesos
-    return round(media_ponderada, 2)
+        media_por_aluno[aluno_ra]['total_score'] += float(score) * float(peso_ciclo)
+        media_por_aluno[aluno_ra]['total_peso'] += float(peso_ciclo)
 
-# Carrega os dados do arquivo JSON
-try:
-    with open('dados.json', 'r') as arquivo_json:
-        dados = json.load(arquivo_json)
-except FileNotFoundError:
-    print('Arquivo "dados.json" não encontrado. Certifique-se de que o arquivo existe.')
-    exit(1)
+    for aluno_ra, media_info in media_por_aluno.items():
+        total_score = media_info['total_score']
+        total_peso = media_info['total_peso']
+        
+        if total_peso == 0:
+            media_final = 0
+        else:
+            media_final = total_score / total_peso
+        
+        media_por_aluno[aluno_ra]['fee'] = round(media_final, 2)
 
-# Verifica se existem notas nos dados
-if 'notas' not in dados:
-    print('Não há notas disponíveis para calcular a média ponderada.')
-    exit(1)
+    return media_por_aluno
 
-# Calcula a média ponderada
-media_ponderada_fee = calcular_media_ponderada()
+# Calcula as médias ponderadas
+medias_ponderadas = calcular_media_ponderada()
 
-# Exibe o resultado
-print(f'A média ponderada (fee) é: {media_ponderada_fee}')
+# Salva as médias ponderadas em um arquivo JSON
+with open('dados.json', 'w') as arquivo_json:
+    json.dump(medias_ponderadas, arquivo_json, indent=4)
+
+print("Médias calculadas e salvas")
