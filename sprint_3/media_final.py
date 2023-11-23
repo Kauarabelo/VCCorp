@@ -42,14 +42,25 @@ def calcular_media_ponderada():
             else:
                 media_final = total_score / total_peso
             
-            media_por_aluno[aluno_ra]['fee'] = round(media_final, 2)
+            # Adiciona a média ponderada (fee) aos dados do aluno sem apagar as informações anteriores
+            if aluno_ra in dados['alunos']:
+                dados['alunos'][aluno_ra].setdefault('fee', []).append(round(media_final, 2))
+            else:
+                print(f"AVISO: Aluno com RA {aluno_ra} não encontrado nos dados.")
     
-        # Salva as médias ponderadas em um arquivo JSON
+        # Remove os totais de score e peso do JSON
+        for aluno in dados['alunos'].values():
+            aluno.pop('total_score', None)
+            aluno.pop('total_peso', None)
+    
+        # Salva os dados atualizados no mesmo arquivo JSON
         with open('dados.json', 'w') as arquivo_json:
-            json.dump(media_por_aluno, arquivo_json, indent=4)
-    
+            json.dump(dados, arquivo_json, indent=4)
+        
         print("Médias calculadas e salvas")
     
         opcao = input("Deseja calcular as médias de outros alunos? (s/n): ").lower()
         if opcao != 's':
             break
+
+
