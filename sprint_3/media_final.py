@@ -1,6 +1,23 @@
 import json
 
+
+def carregar_dados():
+    try:
+        with open('dados.json', 'r') as arquivo_json:
+            dados = json.load(arquivo_json)
+    except FileNotFoundError:
+        dados = {
+            "alunos": {},
+            "turmas": {},
+            "ciclos": {},
+            "grupos": {},
+            "notas": {}
+        }
+    return dados
+
 def calcular_media_ponderada():
+    dados = carregar_dados()
+    
     notas = dados.get('notas', {})
     
     total_pesos = 0

@@ -83,6 +83,18 @@
             "ciclo_id": "1",
             "turma_id": "1",
             "score": 6.0
+        },
+        "ID5": {
+            "aluno_ra": "1",
+            "ciclo_id": "1",
+            "turma_id": "1",
+            "score": 4.0
+        },
+        "ID6": {
+            "aluno_ra": "1",
+            "ciclo_id": "1",
+            "turma_id": "1",
+            "score": 3.0
         }
     }
 }
